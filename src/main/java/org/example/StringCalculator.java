@@ -43,5 +43,52 @@ public class StringCalculator {
         return "";
     }
 
+    public int adding(String numbers){
+        int result = 0 ;
+        int start = 0 ;
+        int end_ ;
+        List<String> negative_dig = new ArrayList<>();
+        int i = 0;
+        while (i<numbers.length()){
+            for (String delimiter : delimiters) {
+
+                try{
+                    if (numbers.startsWith(delimiter, i)) {
+                        end_ = i;
+                        i += delimiter.length();
+                        if (numbers.charAt(start) == '-') {
+                            negative_dig.add(numbers.substring(start, end_));
+                        }
+                        try {
+                            int number = Integer.parseInt(numbers.substring(start, end_));
+                            if (number > 1000) {
+                                start = end_ + delimiter.length();
+                                break;
+                            }
+                            result += number;
+                        } catch (NumberFormatException e) {
+                            System.out.println("Error! Invalid format");
+                            list_clean();
+                            return -1;
+                        }
+                        start = end_ + delimiter.length();
+                        if (start == numbers.length()) {
+                            System.out.println("Error! Invalid format");
+                            list_clean();
+                            return -1;
+                        }
+                        break;
+                    }
+                }catch (StringIndexOutOfBoundsException e){
+                    System.out.print("");
+                }
+            }
+
+            i++;
+        }
+        list_clean();
+
+        return Integer.parseInt(numbers) ;
+    }
 
 }
