@@ -83,7 +83,20 @@ public class StringCalculator {
                     System.out.print("");
                 }
             }
-
+            if (i == numbers.length()-1) {
+                if (!(Integer.parseInt(numbers.substring(start))>1000)){
+                    result += Integer.parseInt(numbers.substring(start));
+                }
+                list_clean();
+                if (numbers.charAt(start)=='-'){
+                    negative_dig.add(numbers.substring(start));
+                }
+                if (negative_dig.size()>0){
+                    System.out.println("Error! Nonsupported negative digits: "+negative_dig);
+                    return -1;
+                }
+                return result ;
+            }
             i++;
         }
         list_clean();
