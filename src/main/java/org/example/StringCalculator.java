@@ -18,5 +18,21 @@ public class StringCalculator {
             delimiters.remove(2);
         }
     }
+    public String custom_del(String str){
+        List<String> res = new ArrayList<>();
+        int start =2 ;
+        int end ;
+        for (int i =2 ; i < str.length();i++){
+            if (str.charAt(i)=='['&& str.charAt(i+1)!='\n')start=i+1;
+            if (str.charAt(i)==']'&& str.charAt(i-1)!='/'){
+                end = i;
+                res.add(str.substring(start,end));
+                start = i+1;
+            }
+
+        }
+        return "";
+    }
+
 
 }
