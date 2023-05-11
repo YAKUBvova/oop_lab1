@@ -87,7 +87,10 @@ public class StringCalculator {
             i++;
         }
         list_clean();
-
+        if (numbers.charAt(0)=='-'){
+            System.out.println("Error! Nonsupported negative digit: "+numbers);
+            return -1;
+        }
         return Integer.parseInt(numbers) ;
     }
 
