@@ -29,7 +29,16 @@ public class StringCalculator {
                 res.add(str.substring(start,end));
                 start = i+1;
             }
-
+            if (str.charAt(i)=='\n'){
+                end=i;
+                if (!str.substring(start,end).equals("")){
+                    res.add(str.substring(start,end));
+                }
+                if (res.isEmpty()){break;}
+                res.sort(Collections.reverseOrder());
+                edit(res);
+                return str.substring(i+1);
+            }
         }
         return "";
     }
