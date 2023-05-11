@@ -9,5 +9,9 @@ public class StringCalculator {
         delimiters.add(",");
         delimiters.add("\n");
     }
+    public void edit(List<String> del){
+
+        delimiters.addAll(del);
+    }
 
 }
