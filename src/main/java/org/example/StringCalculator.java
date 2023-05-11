@@ -106,5 +106,15 @@ public class StringCalculator {
         }
         return Integer.parseInt(numbers) ;
     }
-
+    public int add (String numbers){
+        if (numbers.length() == 0) return 0 ;
+        if (numbers.startsWith( "//")){
+            numbers = custom_del(numbers);
+            if (numbers.equals("")) {
+                System.out.println("Error! Invalid custom delimiters");
+                return -1;
+            }
+        }
+        return adding(numbers) ;
+    }
 }
