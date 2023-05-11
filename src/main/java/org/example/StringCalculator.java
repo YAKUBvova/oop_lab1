@@ -13,5 +13,10 @@ public class StringCalculator {
 
         delimiters.addAll(del);
     }
+    public void list_clean(){
+        while (delimiters.size()>2){
+            delimiters.remove(2);
+        }
+    }
 
 }
